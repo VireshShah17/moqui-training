@@ -11,18 +11,30 @@
 <!--        </out-parameters>-->
 <!--    </service>-->
 
-    <service verb="create" noun="MoquiTraining">
-        <in-parameters>
-            <auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/>
-            <parameter name="trainingName" required="true"/>
-            <parameter name="trainingDate" required="true"/>
-        </in-parameters>
-        <out-parameters>
-            <parameter name="trainingId"/>
-        </out-parameters>
-        <actions>
-            <service-call name="create#moqui.training.MoquiTraining" in-map="context" out-map="context"/>
-        </actions>
+<!--    <service verb="create" noun="MoquiTraining">-->
+<!--        <in-parameters>-->
+<!--            <auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/>-->
+<!--            <parameter name="trainingName" required="true"/>-->
+<!--            <parameter name="trainingDate" required="true"/>-->
+<!--        </in-parameters>-->
+<!--        <out-parameters>-->
+<!--            <parameter name="trainingId"/>-->
+<!--        </out-parameters>-->
+<!--        <actions>-->
+<!--            <service-call name="create#moqui.training.MoquiTraining" in-map="context" out-map="context"/>-->
+<!--        </actions>-->
+<!--    </service>-->
+
+    <service verb="create" noun="MoquiTraining" type="script"
+             location="component://moqui-training/script/TrainingService.groovy">
+                <in-parameters>
+                    <auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/>
+                    <parameter name="trainingName" required="true"/>
+                    <parameter name="trainingDate" required="true"/>
+                </in-parameters>
+                <out-parameters>
+                    <parameter name="trainingId"/>
+                </out-parameters>
     </service>
 
 </services>
