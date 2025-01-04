@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
-    <entity entity-name="ContactMech" package="moqui.contactMech" short-alias="contact">
+    <entity entity-name="ContactMech" package="moqui.contactmech" short-alias="contact">
         <field name="contactMechID" type="id" is-pk="true"/>
         <relationship type="one" related="Party" fk-name="partyId">
             <key-map field-name="partyId"/>
