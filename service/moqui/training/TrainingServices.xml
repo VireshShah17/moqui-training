@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+<!--    Service through entity-auto-->
 <!--    <service verb="create" noun="MoquiTraining" type="entity-auto">-->
 <!--        <in-parameters>-->
 <!--            <auto-parameters include="nonpk"/>-->
@@ -11,6 +12,7 @@
 <!--        </out-parameters>-->
 <!--    </service>-->
 
+<!--    Service through inline-->
 <!--    <service verb="create" noun="MoquiTraining">-->
 <!--        <in-parameters>-->
 <!--            <auto-parameters entity-name="moqui.training.MoquiTraining" include="nonpk"/>-->
@@ -25,6 +27,7 @@
 <!--        </actions>-->
 <!--    </service>-->
 
+<!--    Service through Groovy Scripts-->
     <service verb="create" noun="MoquiTraining" type="script"
              location="component://moqui-training/script/TrainingService.groovy">
                 <in-parameters>

@@ -1,0 +1,5 @@
+# Entity name and type
+moqui.training.MoquiTraining,demo
+# Our data
+trainingID, trainingName, trainingDate, trainingPrice, trainingDuration
+2, Nick Fury, 2025-01-11, 150000, 15
