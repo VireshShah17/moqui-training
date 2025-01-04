@@ -39,5 +39,24 @@
                     <parameter name="trainingId"/>
                 </out-parameters>
     </service>
-
+    
+<!--    Fetching record from the database-->
+    <service verb="fetch" noun="MoquiTraining">
+        <in-parameters>
+            <parameter name="trainingName" entity-name="moqui.training.MoquiTraining"/>
+            <parameter name="trainingID" entity-name="moqui.training.MoquiTraining"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="trainingList" required="true"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="moqui.training.MoquiTraining" list="trainingList">
+                <econdition field-name="trainingName" ignore-if-empty="true"/>
+                <econdition field-name="trainingID" ignore-if-empty="true"/>
+                <select-field field-name="trainingID"/>
+                <select-field field-name="trainingName"/>
+                <select-field field-name="trainingDate"/>
+            </entity-find>
+        </actions>
+    </service>
 </services>
