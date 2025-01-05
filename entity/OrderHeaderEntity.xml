@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-3.xsd">
+    <entity entity-name="OrderHeader" package="moqui.orderheader" short-alias="orderheader">
+        <field name="orderId" type="id" is-pk="true"/>
+        <field name="orderDate" type="date" not-null="true"/>
+        <relationship type="one" related="Party" fk-name="partyId">
+            <key-map field-name="partyId"/>
+        </relationship>
+        <relationship type="one" related="ContactMech" fk-name="shippingContactMechId">
+            <key-map field-name="contactMechID"/>
+        </relationship>
+        <relationship type="one" related="ContactMech" fk-name="billingContactMechId">
+            <key-map field-name="contactMechID"/>
+        </relationship>
+    </entity>
+</entities>
