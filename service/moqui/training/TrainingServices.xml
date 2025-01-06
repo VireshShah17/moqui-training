@@ -191,4 +191,17 @@
         </actions>
     </service>
 
+<!--    Service to create records in product entity-->
+
+    <service verb="create" noun="Product" type="entity-auto">
+        <in-parameters>
+            <parameter name="productId" required="true"/>
+            <parameter name="productName" required="true"/>
+            <parameter name="color" required="true"/>
+            <parameter name="size" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </out-parameters>
+    </service>
 </services>

@@ -11,8 +11,10 @@
 <!--</resource>-->
 
 <!-- API functionality on parties entity-->
-<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd" name="PartyEntityAPI"
-          displayName="Party REST API" version="2.0.0">
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd" name="TrainingAPI"
+          displayName="REST API" version="2.0.0">
+<!--    API for party entities-->
     <resource name="partyGET" require-authentication="anonymous-view">
         <method type="get">
             <entity name="Party" operation="list"></entity>
@@ -43,4 +45,19 @@
             <service name="moqui.training.TrainingServices.login#User"/>
         </method>
     </resource>
+
+<!--    API for product entity-->
+    <resource name="productGET" require-authentication="anonymous-all">
+        <method type="get">
+            <entity name="Product" operation="list"/>
+        </method>
+    </resource>
+
+    <resource name="productPOST" require-authentication="anonymous-all">
+        <method type="post">
+            <service name="moqui.training.TrainingServices.create#Product"/>
+        </method>
+    </resource>
 </resource>
+
+
