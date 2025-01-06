@@ -1,6 +1,2 @@
 # Entity name and type
 moqui.party.Party,demo
-# Our data
-partyId, trainingName, partyType, firstName, lastName
-1, Customer, John, Doe
-2, Customer, Jane, Smith

@@ -210,4 +210,18 @@
             <auto-parameters include="pk" required="true"></auto-parameters>
         </in-parameters>
     </service>
+
+<!--    Service for creating data in order header entity-->
+    <service verb="create" noun="OrderHeader" type="entity-auto">
+        <in-parameters>
+            <parameter name="orderId" required="true"/>
+            <parameter name="orderDate" required="true"/>
+            <parameter name="partyId" required="true"/>
+            <parameter name="shippingContactMechId" required="true"/>
+            <parameter name="billingContactMechId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </out-parameters>
+    </service>
 </services>

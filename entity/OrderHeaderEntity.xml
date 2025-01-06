@@ -6,8 +6,14 @@
         <field name="partyId" type="id"/>
         <field name="shippingContactMechId" type="id"/>
         <field name="billingContactMechId" type="id"/>
-        <relationship type="one" related="moqui.party.Party" short-alias="partyId"/>
-        <relationship type="one" related="moqui.contactmech.ContactMech" short-alias="shippingContactMechId"/>
-        <relationship type="one" related="moqui.contactmech.ContactMech" short-alias="billingContactMechId"/>
+        <relationship type="one" related="moqui.party.Party" short-alias="party"/>
+        <relationship type="one" related="moqui.contactmech.ContactMech" short-alias="shippingContactMechId"
+                      fk-name="aa">
+            <key-map field-name="shippingContactMechId" related="contactMechId"/>
+        </relationship>
+        <relationship type="one" related="moqui.contactmech.ContactMech" short-alias="billingContactMechId"
+                      fk-name="bb">
+            <key-map field-name="billingContactMechId" related="contactMechId"/>
+        </relationship>
     </entity>
 </entities>

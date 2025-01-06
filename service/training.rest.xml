@@ -82,6 +82,13 @@
             </method>
         </id>
     </resource>
+
+<!--    API for order header entity-->
+    <resource name="orderPOST" require-authentication="anonymous-all">
+        <method type="post">
+            <service name="moqui.training.TrainingServices.create#OrderHeader"/>
+        </method>
+    </resource>
 </resource>
 
 
