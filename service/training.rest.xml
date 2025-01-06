@@ -97,6 +97,14 @@
             </method>
         </id>
     </resource>
+
+    <resource name="orderPUT" require-authentication="anonymous-all">
+        <id name="orderId">
+            <method type="put">
+                <entity name="OrderHeader" operation="update"/>
+            </method>
+        </id>
+    </resource>
 </resource>
 
 
