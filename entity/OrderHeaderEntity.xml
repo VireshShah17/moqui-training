@@ -3,14 +3,11 @@
     <entity entity-name="OrderHeader" package="moqui.orderheader" short-alias="orderheader">
         <field name="orderId" type="id" is-pk="true"/>
         <field name="orderDate" type="date" not-null="true"/>
-        <relationship type="one" related="Party" fk-name="partyId">
-            <key-map field-name="partyId"/>
-        </relationship>
-        <relationship type="one" related="ContactMech" fk-name="shippingContactMechId">
-            <key-map field-name="contactMechID"/>
-        </relationship>
-        <relationship type="one" related="ContactMech" fk-name="billingContactMechId">
-            <key-map field-name="contactMechID"/>
-        </relationship>
+        <field name="partyId" type="id"/>
+        <field name="shippingContactMechId" type="id"/>
+        <field name="billingContactMechId" type="id"/>
+        <relationship type="one" related="moqui.party.Party" short-alias="partyId"/>
+        <relationship type="one" related="moqui.contactmech.ContactMech" short-alias="shippingContactMechId"/>
+        <relationship type="one" related="moqui.contactmech.ContactMech" short-alias="billingContactMechId"/>
     </entity>
 </entities>
