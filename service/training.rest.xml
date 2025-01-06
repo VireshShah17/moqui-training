@@ -89,6 +89,14 @@
             <service name="moqui.training.TrainingServices.create#OrderHeader"/>
         </method>
     </resource>
+
+    <resource name="orderGET" require-authentication="anonymous-all">
+        <id name="orderId">
+            <method type="get">
+                <entity name="OrderHeader" operation="one"/>
+            </method>
+        </id>
+    </resource>
 </resource>
 
 
