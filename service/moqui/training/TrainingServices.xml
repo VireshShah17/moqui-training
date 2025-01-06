@@ -107,4 +107,81 @@
             </script>
         </actions>
     </service>
+
+    <!--    Service through entity-auto for party entity-->
+        <service verb="create" noun="Party" type="entity-auto" >
+            <in-parameters>
+                <auto-parameters include="nonpk"/>
+                <parameter name="partyId" required="true"/>
+                <parameter name="partyType" required="true"/>
+                <parameter name="firstName" required="true"/>
+                <parameter name="lastName" required="true"/>
+            </in-parameters>
+            <out-parameters>
+                <auto-parameters include="pk" required="true"/>
+            </out-parameters>
+        </service>
+
+
+    <!--    Service to update/create a record in our party entity-->
+<!--    <service verb="store" noun="Party">-->
+<!--        <in-parameters>-->
+<!--            <parameter name="partyId" required="true"/>-->
+<!--            <parameter name="partyType"/>-->
+<!--            <parameter name="firstName"/>-->
+<!--            <parameter name="lastName"/>-->
+<!--        </in-parameters>-->
+<!--        <out-parameters>-->
+<!--            <parameter name="partyId"/>-->
+<!--        </out-parameters>-->
+<!--        <actions>-->
+<!--            <script>-->
+<!--                <![CDATA[-->
+<!--                // Fetch existing record by trainingID or trainingName-->
+<!--                def trainingRecord = ec.entity.find("moqui.party.Party")-->
+<!--                if (context.partyId) {-->
+<!--                    trainingRecord.condition("partyId", context.partyId)-->
+<!--                }-->
+<!--                trainingRecord = trainingRecord.one()-->
+
+<!--                if (trainingRecord) {-->
+<!--                    // Update existing record-->
+<!--                    trainingRecord.set("partyType", context.partyType)-->
+<!--                    trainingRecord.set("firstName", context.firstName)-->
+<!--                    trainingRecord.set("lastName", context.lastName)-->
+<!--                    trainingRecord.update()-->
+<!--                    context.partyId = trainingRecord.partyId-->
+<!--                } else {-->
+<!--                    // Create a new record-->
+<!--                    def newPartyID = ec.entity.sequencedIdPrimary("moqui.party.Party", null, null)-->
+<!--                    ec.entity.makeValue("moqui.party.Party")-->
+<!--                        .set("partyId", newPartyID)-->
+<!--                        .set("partyType", context.partyType)-->
+<!--                        .set("firstName", context.firstName)-->
+<!--                        .set("lastName", context.lastName)-->
+<!--                        .create()-->
+<!--                    context.partyId = newPartyID-->
+<!--                }-->
+<!--            ]]>-->
+<!--            </script>-->
+<!--        </actions>-->
+<!--    </service>-->
+
+<!--    Created a login service to authenticate the user-->
+    <service verb="login" noun="User">
+        <in-parameters>
+            <parameter name="username" required="true"/>
+            <parameter name="password" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="apiKey"/>
+            <parameter name="moquiSessionToken"/>
+        </out-parameters>
+        <actions>
+            <script>ec.user.loginUser(username, password)</script>
+            <set field="apiKey" from="ec.user.getLoginKey()"/>
+            <set field="moquiSessionToken" from="ec.web.sessionToken"/>
+        </actions>
+    </service>
+
 </services>

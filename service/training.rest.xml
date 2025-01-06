@@ -10,13 +10,30 @@
 <!--    </resource>-->
 <!--</resource>-->
 
-<!-- GET functionality on parties entity-->
-<resource xmls:xsi="http://www.w3.org/2001/XMLSchema"
-          xsi:noNamespaceSchema="http://moqui.org/xsd/rest-api-3.xsd" name="PartyEntityAPI"
+<!-- API functionality on parties entity-->
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-3.xsd" name="PartyEntityAPI"
           displayName="Party REST API" version="2.0.0">
-    <resource name="partGET" require-authentication="anonymous-view">
+    <resource name="partyGET" require-authentication="anonymous-view">
         <method type="get">
             <entity name="Party" operation="list"></entity>
+        </method>
+    </resource>
+    <resource name="partyPOST" require-authentication="anonymous-all">
+        <method type="post">
+            <service name="moqui.training.TrainingServices.create#Party"/>
+        </method>
+    </resource>
+
+<!--    <resource name="partyPUT" require-authentication="false">-->
+<!--        <method type="put">-->
+<!--            <service name="moqui.training.TrainingServices.store#Party"/>-->
+<!--        </method>-->
+<!--    </resource>-->
+
+<!--    API to get session token-->
+    <resource name="login" require-authentication="anonymous-all">
+        <method type="get">
+            <service name="moqui.training.TrainingServices.login#User"/>
         </method>
     </resource>
 </resource>
