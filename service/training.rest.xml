@@ -18,18 +18,25 @@
             <entity name="Party" operation="list"></entity>
         </method>
     </resource>
+
     <resource name="partyPOST" require-authentication="anonymous-all">
         <method type="post">
             <service name="moqui.training.TrainingServices.create#Party"/>
         </method>
     </resource>
 
-<!--    <resource name="partyPUT" require-authentication="false">-->
-<!--        <method type="put">-->
-<!--            <service name="moqui.training.TrainingServices.store#Party"/>-->
-<!--        </method>-->
-<!--    </resource>-->
+    <resource name="partyPUT" require-authentication="anonymous-all">
+        <method type="put">
+            <service name="moqui.training.TrainingServices.store#Party"/>
+<!--            <entity name="moqui.party.Party" operation="update"/>-->
+        </method>
+    </resource>
 
+    <resource name="partyDelete" require-authentication="anonymous-all">
+        <method type="delete">
+            <service name="moqui.training.TrainingServices.delete#Party"/>
+        </method>
+    </resource>
 <!--    API to get session token-->
     <resource name="login" require-authentication="anonymous-all">
         <method type="get">
