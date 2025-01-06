@@ -61,7 +61,7 @@
     </service>
 
 <!--    Service to update/create a record in our entity-->
-    <service verb="createUpdate" noun="MoquiTraining">
+    <service verb="store" noun="MoquiTraining">
         <in-parameters>
             <parameter name="trainingID"/>
             <parameter name="trainingName" required="true"/>
@@ -107,6 +107,4 @@
             </script>
         </actions>
     </service>
-
-
 </services>
