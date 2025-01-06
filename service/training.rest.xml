@@ -16,9 +16,11 @@
           displayName="REST API" version="2.0.0">
 <!--    API for party entities-->
     <resource name="partyGET" require-authentication="anonymous-view">
-        <method type="get">
-            <entity name="Party" operation="list"></entity>
-        </method>
+        <id name="partyId">
+            <method type="get">
+                <entity name="Party" operation="one"/>
+            </method>
+        </id>
     </resource>
 
     <resource name="partyPOST" require-authentication="anonymous-all">
@@ -28,16 +30,20 @@
     </resource>
 
     <resource name="partyPUT" require-authentication="anonymous-all">
-        <method type="put">
-            <service name="moqui.training.TrainingServices.store#Party"/>
-<!--            <entity name="moqui.party.Party" operation="update"/>-->
-        </method>
+        <id name="partyId">
+            <method type="put">
+<!--                <service name="moqui.training.TrainingServices.store#Party"/>-->
+                <entity name="moqui.party.Party" operation="update"/>
+            </method>
+        </id>
     </resource>
 
     <resource name="partyDelete" require-authentication="anonymous-all">
-        <method type="delete">
-            <service name="moqui.training.TrainingServices.delete#Party"/>
-        </method>
+        <id name="partyId">
+            <method type="delete">
+                <service name="moqui.training.TrainingServices.delete#Party"/>
+            </method>
+        </id>
     </resource>
 <!--    API to get session token-->
     <resource name="login" require-authentication="anonymous-all">
@@ -48,15 +54,33 @@
 
 <!--    API for product entity-->
     <resource name="productGET" require-authentication="anonymous-all">
-        <method type="get">
-            <entity name="Product" operation="list"/>
-        </method>
+        <id name="productId">
+            <method type="get">
+                <entity name="Product" operation="one"/>
+            </method>
+        </id>
     </resource>
 
     <resource name="productPOST" require-authentication="anonymous-all">
         <method type="post">
             <service name="moqui.training.TrainingServices.create#Product"/>
         </method>
+    </resource>
+
+    <resource name="productPUT" require-authentication="anonymous-all">
+        <id name="productId">
+            <method type="put">
+                <entity name="moqui.product.Product" operation="update"/>
+            </method>
+        </id>
+    </resource>
+    
+    <resource name="productDelete" require-authentication="anonymous-all">
+        <id name="productId">
+            <method type="delete">
+                <service name="moqui.training.TrainingServices.delete#Product"/>
+            </method>
+        </id>
     </resource>
 </resource>
 

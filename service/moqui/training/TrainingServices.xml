@@ -126,7 +126,6 @@
     <!--    Service to update/create a record in our party entity-->
     <service verb="store" noun="Party">
         <in-parameters>
-            <parameter name="partyId" required="true"/>
             <parameter name="partyType"/>
             <parameter name="firstName"/>
             <parameter name="lastName"/>
@@ -203,5 +202,12 @@
         <out-parameters>
             <auto-parameters include="pk" required="true"/>
         </out-parameters>
+    </service>
+
+<!--    Service to delete record in product entity-->
+    <service verb="delete" noun="Product" type="entity-auto">
+        <in-parameters>
+            <auto-parameters include="pk" required="true"></auto-parameters>
+        </in-parameters>
     </service>
 </services>
