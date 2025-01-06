@@ -224,4 +224,11 @@
             <auto-parameters include="pk" required="true"/>
         </out-parameters>
     </service>
+
+<!--    Service to delete data from order header entity-->
+    <service verb="delete" noun="OrderHeader" type="entity-auto">
+        <in-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </in-parameters>
+    </service>
 </services>
