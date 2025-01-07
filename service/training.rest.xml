@@ -114,6 +114,7 @@
         </id>
     </resource>
     
+<!--    API endpoint for entering data into order item-->
     <resource name="orders" require-authentication="anonymous-all">
         <id name="orderId">
             <resource name="items" require-authentication="anonymous-all">
@@ -123,6 +124,29 @@
             </resource>
         </id>
     </resource>
+    
+<!--    API endpoints for contact mech -->
+    <resource name="parties" require-authentication="anonymous-all">
+        <id name="partyId">
+            <resource name="contacts">
+                <method type="post">
+                    <service name="moqui.training.TrainingServices.create#ContactMech"/>
+                </method>
+            </resource>
+        </id>
+    </resource>
+
+    <resource name="parties" require-authentication="anonymous-all">
+        <id name="partyId">
+            <resource name="contacts">
+                <method type="get">
+                    <entity name="ContactMech" operation="one"/>
+                </method>
+            </resource>
+        </id>
+    </resource>
+
+    
 </resource>
 
 
