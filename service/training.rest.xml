@@ -113,6 +113,16 @@
             </method>
         </id>
     </resource>
+    
+    <resource name="orders" require-authentication="anonymous-all">
+        <id name="orderId">
+            <resource name="items" require-authentication="anonymous-all">
+                <method type="post">
+                    <service name="moqui.training.TrainingServices.create#OrderItem"/>
+                </method>
+            </resource>
+        </id>
+    </resource>
 </resource>
 
 
