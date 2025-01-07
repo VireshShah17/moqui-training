@@ -245,4 +245,18 @@
             <auto-parameters include="pk" required="true"/>
         </in-parameters>
     </service>
+    
+<!--    Service to add data in contact mechanism -->
+    <service verb="create" noun="ContactMech" type="entity-auto">
+        <in-parameters>
+            <parameter name="contactMechID" required="true"/>
+            <parameter name="streetAddress" required="true"/>
+            <parameter name="city" required="true"/>
+            <parameter name="postalCode" required="true"/>
+            <parameter name="partyId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </out-parameters>
+    </service>
 </services>
