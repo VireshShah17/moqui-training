@@ -259,4 +259,11 @@
             <auto-parameters include="pk" required="true"/>
         </out-parameters>
     </service>
+
+<!--    Service to delete an entry from contact mech-->
+    <service verb="delete" noun="ContactMech" type="entity-auto">
+        <in-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </in-parameters>
+    </service>
 </services>

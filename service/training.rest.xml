@@ -146,7 +146,27 @@
         </id>
     </resource>
 
+    <resource name="parties" require-authentication="anonymous-all">
+        <id name="partyId">
+            <resource name="contacts">
+                <method type="put">
+                    <entity name="ContactMech" operation="update"/>
+                </method>
+            </resource>
+        </id>
+    </resource>
     
+    <resource name="parties" require-authentication="anonymous-all">
+        <id name="partyId">
+            <resource name="contacts">
+                <id name="contactMechID">
+                    <method type="delete">
+                        <service name="moqui.training.TrainingServices.delete#ContactMech"/>
+                    </method>
+                </id>
+            </resource>
+        </id>
+    </resource>
 </resource>
 
 
