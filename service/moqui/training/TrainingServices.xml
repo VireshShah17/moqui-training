@@ -225,6 +225,20 @@
         </out-parameters>
     </service>
 
+<!--    Service to add record in order item dB-->
+    <service verb="create" noun="OrderItem" type="entity-auto">
+        <in-parameters>
+            <parameter name="orderItemSequenceId" required="true"/>
+            <parameter name="quantity" required="true"/>
+            <parameter name="status" required="true"/>
+            <parameter name="orderId" required="true"/>
+            <parameter name="productId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </out-parameters>
+    </service>
+
 <!--    Service to delete data from order header entity-->
     <service verb="delete" noun="OrderHeader" type="entity-auto">
         <in-parameters>
