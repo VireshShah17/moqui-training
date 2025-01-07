@@ -87,8 +87,8 @@
                 if (trainingRecord) {
                     // Update existing record
                     trainingRecord.set("trainingDate", context.trainingDate)
-                    trainingRecord.set("trainingPrice", context.trainingPrice)
-                    trainingRecord.set("trainingDuration", context.trainingDuration)
+                    if (context.trainingPrice != null) trainingRecord.set("trainingPrice", context.trainingPrice)
+                    if (context.trainingDuration != null) trainingRecord.set("trainingDuration", context.trainingDuration)
                     trainingRecord.update()
                     context.trainingID = trainingRecord.trainingID
                 } else {

@@ -149,9 +149,11 @@
     <resource name="parties" require-authentication="anonymous-all">
         <id name="partyId">
             <resource name="contacts">
-                <method type="put">
-                    <entity name="ContactMech" operation="update"/>
-                </method>
+                <id name="contactMechID">
+                    <method type="put">
+                        <entity name="ContactMech" operation="update"/>
+                    </method>
+                </id>
             </resource>
         </id>
     </resource>
