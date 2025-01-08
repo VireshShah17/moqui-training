@@ -61,10 +61,10 @@
     </service>
 
 <!--    Service to update/create a record in our entity-->
-    <service verb="store" noun="MoquiTraining">
+    <service verb="store" noun="MoquiTraining" type="script" location="component://moqui-training/script/UpdateService.groovy">
         <in-parameters>
             <parameter name="trainingID"/>
-            <parameter name="trainingName" required="true"/>
+            <parameter name="trainingName"/>
             <parameter name="trainingDate" required="true"/>
             <parameter name="trainingPrice"/>
             <parameter name="trainingDuration"/>
@@ -72,40 +72,6 @@
         <out-parameters>
             <parameter name="trainingID"/>
         </out-parameters>
-        <actions>
-            <script>
-                <![CDATA[
-                // Fetch existing record by trainingID or trainingName
-                def trainingRecord = ec.entity.find("moqui.training.MoquiTraining")
-                if (context.trainingID) {
-                    trainingRecord.condition("trainingID", context.trainingID)
-                } else if (context.trainingName) {
-                    trainingRecord.condition("trainingName", context.trainingName)
-                }
-                trainingRecord = trainingRecord.one()
-
-                if (trainingRecord) {
-                    // Update existing record
-                    trainingRecord.set("trainingDate", context.trainingDate)
-                    if (context.trainingPrice != null) trainingRecord.set("trainingPrice", context.trainingPrice)
-                    if (context.trainingDuration != null) trainingRecord.set("trainingDuration", context.trainingDuration)
-                    trainingRecord.update()
-                    context.trainingID = trainingRecord.trainingID
-                } else {
-                    // Create a new record
-                    def newTrainingID = ec.entity.sequencedIdPrimary("moqui.training.MoquiTraining", null, null)
-                    ec.entity.makeValue("moqui.training.MoquiTraining")
-                        .set("trainingID", newTrainingID)
-                        .set("trainingName", context.trainingName)
-                        .set("trainingDate", context.trainingDate)
-                        .set("trainingPrice", context.trainingPrice)
-                        .set("trainingDuration", context.trainingDuration)
-                        .create()
-                    context.trainingID = newTrainingID
-                }
-            ]]>
-            </script>
-        </actions>
     </service>
 
     <!--    Service through entity-auto for party entity-->

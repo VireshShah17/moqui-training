@@ -22,7 +22,7 @@ if (!trainingDate) {
 }
 
 // Explicitly generate a unique ID
-def trainingID = ec.entity.sequencedIdPrimary("MoquiTraining", null, null)
+def trainingID = ec.entity.sequencedIdPrimary("moqui.training.MoquiTraining", null, null)
 
 // Create the MoquiTraining entity record
 EntityValue trainingRecord = ec.entity.makeValue("moqui.training.MoquiTraining")
