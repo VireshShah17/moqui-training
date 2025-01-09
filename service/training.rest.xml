@@ -132,43 +132,58 @@
                 <method type="post">
                     <service name="moqui.training.TrainingServices.create#ContactMech"/>
                 </method>
-            </resource>
-        </id>
-    </resource>
-
-    <resource name="parties" require-authentication="anonymous-all">
-        <id name="partyId">
-            <resource name="contacts">
                 <method type="get">
                     <entity name="ContactMech" operation="one"/>
                 </method>
-            </resource>
-        </id>
-    </resource>
 
-    <resource name="parties" require-authentication="anonymous-all">
-        <id name="partyId">
-            <resource name="contacts">
-                <id name="contactMechID">
+                <id name="contactMechId">
                     <method type="put">
                         <entity name="ContactMech" operation="update"/>
                     </method>
                 </id>
-            </resource>
-        </id>
-    </resource>
-    
-    <resource name="parties" require-authentication="anonymous-all">
-        <id name="partyId">
-            <resource name="contacts">
-                <id name="contactMechID">
+
+                <id name="contactMechId">
                     <method type="delete">
-                        <service name="moqui.training.TrainingServices.delete#ContactMech"/>
+                        <entity name="ContactMech" operation="delete"/>
                     </method>
                 </id>
             </resource>
         </id>
     </resource>
+
+<!--    <resource name="parties" require-authentication="anonymous-all">-->
+<!--        <id name="partyId">-->
+<!--            <resource name="contacts">-->
+<!--                <method type="get">-->
+<!--                    <entity name="ContactMech" operation="one"/>-->
+<!--                </method>-->
+<!--            </resource>-->
+<!--        </id>-->
+<!--    </resource>-->
+
+<!--    <resource name="parties" require-authentication="anonymous-all">-->
+<!--        <id name="partyId">-->
+<!--            <resource name="contacts">-->
+<!--                <id name="contactMechID">-->
+<!--                    <method type="put">-->
+<!--                        <entity name="ContactMech" operation="update"/>-->
+<!--                    </method>-->
+<!--                </id>-->
+<!--            </resource>-->
+<!--        </id>-->
+<!--    </resource>-->
+
+<!--    <resource name="parties" require-authentication="anonymous-all">-->
+<!--        <id name="partyId">-->
+<!--            <resource name="contacts">-->
+<!--                <id name="contactMechID">-->
+<!--                    <method type="delete">-->
+<!--                        <service name="moqui.training.TrainingServices.delete#ContactMech"/>-->
+<!--                    </method>-->
+<!--                </id>-->
+<!--            </resource>-->
+<!--        </id>-->
+<!--    </resource>-->
 </resource>
 
 
