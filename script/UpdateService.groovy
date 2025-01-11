@@ -25,7 +25,7 @@ if (record){
     record.update()
     context.trainingID = record.trainingID
 
-//    Creating a record if it doesn"t exist
+//    Creating a record if it doesn't exist
 } else{
     def newTrainingID = ec.entity.sequenceIdPrimary("moqui.training.MoquiTraining", null, null)
     EntityValue newRecord = ec.entity.makeValue("moqui.training.MoquiTraining")
@@ -36,7 +36,4 @@ if (record){
     newRecord.set("trainingDuration", context.trainingDuration)
     newRecord.create()
     context.trainingID = newTrainingID
-
-
-
 }

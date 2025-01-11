@@ -132,17 +132,15 @@
                 <method type="post">
                     <service name="moqui.training.TrainingServices.create#ContactMech"/>
                 </method>
+
                 <method type="get">
                     <entity name="ContactMech" operation="one"/>
                 </method>
 
-                <id name="contactMechId">
+                <id name="contactMechID">
                     <method type="put">
-                        <entity name="ContactMech" operation="update"/>
+                        <entity name="ContactMech" operation="store"/>
                     </method>
-                </id>
-
-                <id name="contactMechId">
                     <method type="delete">
                         <entity name="ContactMech" operation="delete"/>
                     </method>
