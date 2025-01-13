@@ -75,7 +75,7 @@
     </service>
 
     <!--    Service through entity-auto for party entity-->
-        <service verb="create" noun="Party" type="entity-auto" >
+        <service verb="create" noun="Party" type="entity-auto" authenticate="false">
             <in-parameters>
                 <auto-parameters include="nonpk"/>
                 <parameter name="partyId" required="true"/>
