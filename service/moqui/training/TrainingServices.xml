@@ -88,54 +88,10 @@
             </out-parameters>
         </service>
 
-
-    <!--    Service to update/create a record in our party entity-->
-    <service verb="store" noun="Party">
-        <in-parameters>
-            <parameter name="partyType"/>
-            <parameter name="firstName"/>
-            <parameter name="lastName"/>
-        </in-parameters>
-        <out-parameters>
-            <parameter name="partyId"/>
-        </out-parameters>
-        <actions>
-            <script>
-                <![CDATA[
-                // Fetch existing record by trainingID or trainingName
-                def trainingRecord = ec.entity.find("moqui.party.Party")
-                if (context.partyId) {
-                    trainingRecord.condition("partyId", context.partyId)
-                }
-                trainingRecord = trainingRecord.one()
-
-                if (trainingRecord) {
-                    // Update existing record
-                    trainingRecord.set("partyType", context.partyType)
-                    trainingRecord.set("firstName", context.firstName)
-                    trainingRecord.set("lastName", context.lastName)
-                    trainingRecord.update()
-                    context.partyId = trainingRecord.partyId
-                } else {
-                    // Create a new record
-                    def newPartyID = ec.entity.sequencedIdPrimary("moqui.party.Party", null, null)
-                    ec.entity.makeValue("moqui.party.Party")
-                        .set("partyId", newPartyID)
-                        .set("partyType", context.partyType)
-                        .set("firstName", context.firstName)
-                        .set("lastName", context.lastName)
-                        .create()
-                    context.partyId = newPartyID
-                }
-            ]]>
-            </script>
-        </actions>
-    </service>
-
 <!--    Delete service for party entity-->
     <service verb="delete" noun="Party" type="entity-auto">
         <in-parameters>
-            <auto-parameters include="pk" required="true"></auto-parameters>
+            <auto-parameters include="pk" required="true"/>
         </in-parameters>
     </service>
 
@@ -173,7 +129,7 @@
 <!--    Service to delete record in product entity-->
     <service verb="delete" noun="Product" type="entity-auto">
         <in-parameters>
-            <auto-parameters include="pk" required="true"></auto-parameters>
+            <auto-parameters include="pk" required="true"/>
         </in-parameters>
     </service>
 
