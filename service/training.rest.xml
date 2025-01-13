@@ -40,36 +40,23 @@
     </resource>
 
 <!--    API for product entity-->
-    <resource name="productGET" require-authentication="anonymous-all">
+    <resource name="product" require-authentication="anonymous-all">
+        <method type="post">
+            <service name="moqui.training.TrainingServices.create#Product"/>
+        </method>
         <id name="productId">
             <method type="get">
                 <entity name="Product" operation="one"/>
             </method>
-        </id>
-    </resource>
-
-    <resource name="productPOST" require-authentication="anonymous-all">
-        <method type="post">
-            <service name="moqui.training.TrainingServices.create#Product"/>
-        </method>
-    </resource>
-
-    <resource name="productPUT" require-authentication="anonymous-all">
-        <id name="productId">
             <method type="put">
                 <entity name="moqui.product.Product" operation="update"/>
             </method>
-        </id>
-    </resource>
-    
-    <resource name="productDelete" require-authentication="anonymous-all">
-        <id name="productId">
             <method type="delete">
                 <service name="moqui.training.TrainingServices.delete#Product"/>
             </method>
         </id>
     </resource>
-
+    
 <!--    API for order header entity-->
     <resource name="orderPOST" require-authentication="anonymous-all">
         <method type="post">
