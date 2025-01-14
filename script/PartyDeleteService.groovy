@@ -5,7 +5,6 @@ import org.moqui.entity.EntityValue
 ExecutionContext ec = context.ec
 
 // Fetch the Party record
-EntityValue partyRecord = null
 if (context.partyId) {
         partyRecord = ec.entity.find("moqui.party.Party")
                 .condition("partyId", context.partyId)
@@ -13,7 +12,6 @@ if (context.partyId) {
 }
 
 // Fetch all related ContactMech records
-EntityList contactRecords = null
 if (context.partyId) {
         contactRecords = ec.entity.find("moqui.contactmech.ContactMech")
                 .condition("partyId", context.partyId)
@@ -21,7 +19,6 @@ if (context.partyId) {
 }
 
 // Fetch all related records of order_header
-EntityList orderHeaders = null
 if (context.partyId){
         orderHeaders = ec.entity.find("moqui.orderheader.OrderHeader")
                 .condition("partyId", context.partyId).list()
@@ -41,7 +38,6 @@ if (orderHeaders && !orderHeaders.isEmpty()){
                 ec.message.addMessage("Deleted OrderHeader record with partyId=${context.partyId}.", "info")
         }
 }
-
 if (partyRecord) {
         partyRecord.delete()
         ec.message.addMessage("Deleted Party record with partyId=${context.partyId}.", "info")
