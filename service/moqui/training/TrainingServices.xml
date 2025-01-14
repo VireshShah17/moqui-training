@@ -89,10 +89,14 @@
         </service>
 
 <!--    Delete service for party entity-->
-    <service verb="delete" noun="Party" type="entity-auto">
+    <service verb="delete" noun="Party" type="script"
+             location="component://moqui-training/script/PartyDeleteService.groovy">
         <in-parameters>
             <auto-parameters include="pk" required="true"/>
         </in-parameters>
+        <out-parameters>
+            <auto-parameters include="pk" required="true"/>
+        </out-parameters>
     </service>
 
 <!--    Created a login service to authenticate the user-->
@@ -174,6 +178,7 @@
             <parameter name="contactMechID" required="true"/>
             <parameter name="streetAddress" required="true"/>
             <parameter name="city" required="true"/>
+            <parameter name="state" required="true"/>
             <parameter name="postalCode" required="true"/>
             <parameter name="partyId" required="true"/>
         </in-parameters>
